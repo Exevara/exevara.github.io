@@ -7,11 +7,12 @@ h1 {
     display:flex;
     height: 100svh;
     height: 100vh;
-    color:#ffc5ce;
+    background-color:#ffc5ce;
     flex:1;
+    color:black;
 }
 h1#hero-head1{
-    font-size:large;
+    font-size:50svh;
 
 }
 h2#except-hero {
