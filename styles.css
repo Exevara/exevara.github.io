@@ -1,22 +1,62 @@
-h1 {
-  font-family: "Zen Loop", cursive;
-  font-weight: 400;
-  font-style: italic;
+/* Reset and base styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-#hero-header{
-    display:flex;
-    height: 100svh;
+
+html, body {
+    height: 100%;
+    font-family: 'Zen Loop', cursive;
+}
+
+body {
+    background-color: #ffc5ce;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Hero header container */
+#hero-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     height: 100vh;
-    background-color:#ffc5ce;
+    padding: 2rem;
+}
+
+/* Main heading */
+#hero-head1 {
+    font-size: clamp(3rem, 10vw, 8rem);
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 1rem;
+    line-height: 1.1;
+}
+
+/* Subheading */
+#hero-head2 {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    font-weight: 400;
+    font-style: italic;
+    opacity: 0.9;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    #hero-header {
+        padding: 1rem;
+    }
     
-    color:black;
-}
-h1#hero-head1{
-    font-size:50svh;
-    flex:1;
-}
-h2#except-hero {
-  font-family: "Zen Loop", cursive;
-  font-weight: 400;
-  font-style: italic;
+    #hero-head1 {
+        font-size: clamp(2.5rem, 9vw, 6rem);
+    }
+    
+    #hero-head2 {
+        font-size: clamp(1.2rem, 4vw, 2.5rem);
+    }
 }
