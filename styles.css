@@ -1,0 +1,20 @@
+h1 {
+  font-family: "Zen Loop", cursive;
+  font-weight: 400;
+  font-style: italic;
+}
+#hero-header{
+    display:flex;
+    height: 100svh;
+    height: 100vh;
+    color:#ffc5ce;
+}
+h1#hero-head1{
+    font-size:large;
+
+}
+h2#except-hero {
+  font-family: "Zen Loop", cursive;
+  font-weight: 400;
+  font-style: italic;
+}
