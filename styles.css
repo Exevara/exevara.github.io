@@ -64,9 +64,11 @@ h1 {
     line-height: 1.1;
 }
 #go{
-    background-color: rgba(21, 21, 21, 0.322);
+    background-color: #333;
     color:rgb(208, 255, 0);
-    padding:50px;
+    padding:20px;
+    border:5px solid rgb(208, 255, 0);
+    border-radius:100%;
 }
 /* Responsive adjustments */
 @media (max-width: 900px) {
