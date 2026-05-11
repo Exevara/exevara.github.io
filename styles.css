@@ -8,12 +8,12 @@ h1 {
     height: 100svh;
     height: 100vh;
     background-color:#ffc5ce;
-    flex:1;
+    
     color:black;
 }
 h1#hero-head1{
     font-size:50svh;
-
+    flex:1;
 }
 h2#except-hero {
   font-family: "Zen Loop", cursive;
