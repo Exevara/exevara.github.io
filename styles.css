@@ -26,20 +26,20 @@ body {
     overflow: hidden;
 }
 
-/* Icon styling - now on the left */
+/* Text container - now on the left */
+.hero-text {
+    flex: 1;
+    text-align: left;
+    max-width: 50%;
+    padding-right: 2rem;
+}
+
+/* Icon styling - now on the right */
 .hero-icon {
     width: clamp(250px, 30vw, 400px);
     height: auto;
     flex-shrink: 0;
     filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
-}
-
-/* Text container - now on the right */
-.hero-text {
-    flex: 1;
-    text-align: left;
-    max-width: 50%;
-    padding-left: 2rem;
 }
 
 /* Main heading */
@@ -58,11 +58,13 @@ body {
     font-style: italic;
     opacity: 0.9;
 }
+
 h1 {
     font-weight: 400;
     font-style: italic;
     line-height: 1.1;
 }
+
 #go{
     background-color: #333;
     color:rgb(208, 255, 0);
@@ -71,16 +73,16 @@ h1 {
     border-radius:  999px;
     margin:30px;
     font-weight: bold;
-
 }
 
 #go:hover {
   cursor: pointer;
 }
+
 /* Responsive adjustments */
 @media (max-width: 900px) {
     #hero-header {
-        flex-direction: column;
+        flex-direction: column-reverse;
         text-align: center;
         padding: 4vw 0;
     }
@@ -88,8 +90,8 @@ h1 {
     .hero-text {
         max-width: 100%;
         text-align: center;
-        padding-left: 0;
-        padding-top: 2rem;
+        padding-right: 0;
+        padding-bottom: 2rem;
     }
     
     #hero-head1 {
@@ -114,7 +116,7 @@ h1 {
     }
     
     .hero-text {
-        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
     }
     
     #hero-head1 {
