@@ -58,7 +58,16 @@ body {
     font-style: italic;
     opacity: 0.9;
 }
-
+h1 {
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.1;
+}
+#go{
+    background-color: rgba(21, 21, 21, 0.322);
+    color:rgb(208, 255, 0);
+    padding:50px;
+}
 /* Responsive adjustments */
 @media (max-width: 900px) {
     #hero-header {
