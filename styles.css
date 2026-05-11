@@ -11,7 +11,7 @@ html, body {
 }
 
 body {
-    background-color: #ffd5db;
+    background-color: #fcffbe;
     color: #333;
 }
 
@@ -26,12 +26,20 @@ body {
     overflow: hidden;
 }
 
-/* Text container */
+/* Icon styling - now on the left */
+.hero-icon {
+    width: clamp(250px, 30vw, 400px);
+    height: auto;
+    flex-shrink: 0;
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+}
+
+/* Text container - now on the right */
 .hero-text {
     flex: 1;
     text-align: left;
     max-width: 50%;
-    padding-right: 2rem;
+    padding-left: 2rem;
 }
 
 /* Main heading */
@@ -51,18 +59,10 @@ body {
     opacity: 0.9;
 }
 
-/* Icon styling */
-.hero-icon {
-    width: clamp(300px, 40vw, 500px);
-    height: auto;
-    flex-shrink: 0;
-    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
-}
-
 /* Responsive adjustments */
 @media (max-width: 900px) {
     #hero-header {
-        flex-direction: column-reverse;
+        flex-direction: column;
         text-align: center;
         padding: 4vw 0;
     }
@@ -70,8 +70,8 @@ body {
     .hero-text {
         max-width: 100%;
         text-align: center;
-        padding-right: 0;
-        padding-bottom: 2rem;
+        padding-left: 0;
+        padding-top: 2rem;
     }
     
     #hero-head1 {
@@ -85,7 +85,7 @@ body {
     }
     
     .hero-icon {
-        width: clamp(200px, 50vw, 350px);
+        width: clamp(180px, 40vw, 250px);
         margin-bottom: 2rem;
     }
 }
@@ -96,7 +96,7 @@ body {
     }
     
     .hero-text {
-        padding-bottom: 1.5rem;
+        padding-top: 1.5rem;
     }
     
     #hero-head1 {
@@ -108,6 +108,6 @@ body {
     }
     
     .hero-icon {
-        width: clamp(150px, 60vw, 250px);
+        width: clamp(140px, 50vw, 200px);
     }
 }
