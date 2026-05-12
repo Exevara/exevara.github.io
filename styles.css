@@ -1,3 +1,13 @@
+/* Font face declaration */
+@font-face {
+    font-family: 'Space Grotesk';
+    font-style: normal;
+    font-weight: 300 700;
+    font-display: swap;
+    src: url('https://fonts.gstatic.com/s/spacegrotesk/v15/V8mDoQDnFEPND2J5yw1kLgfFPaYkcKh13yi8RS.woff2') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 /* Reset and base styles */
 * {
     margin: 0;
@@ -26,15 +36,15 @@ body {
     overflow: hidden;
 }
 
-/* Text container - now on the left */
+/* Text container - now on the right */
 .hero-text {
     flex: 1;
     text-align: left;
     max-width: 50%;
-    padding-right: 2rem;
+    padding-left: 2rem;
 }
 
-/* Icon styling - now on the right */
+/* Icon styling - now on the left */
 .hero-icon {
     width: clamp(250px, 30vw, 400px);
     height: auto;
@@ -82,7 +92,7 @@ h1 {
 /* Responsive adjustments */
 @media (max-width: 900px) {
     #hero-header {
-        flex-direction: column-reverse;
+        flex-direction: column;
         text-align: center;
         padding: 4vw 0;
     }
