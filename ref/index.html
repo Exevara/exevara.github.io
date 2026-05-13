@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html data-theme="sepia">
+    <head>
+        <title>Exevara - Reference</title>
+        <link rel="stylesheet" href="https://classless.de/classless.css">
+        <link rel="stylesheet" href="https://classless.de/addons/themes.css">
+    </head>
+    <body>
+        <aside>
+            <nav>
+                <ul>
+                    <li><strong>Gogo CLI</strong></li>
+                    <li><a href="#cli-init">gogo init</a></li>
+                    <li><a href="#cli-build">gogo build</a></li>
+                    <li><a href="#cli-run">gogo run</a></li>
+                    <li><br></li>
+                    <li><strong>gogo.toml</strong></li>
+                    <li><a href="#toml-overview">Overview</a></li>
+                    <li><a href="#toml-fields">Fields</a></li>
+                    <li><br></li>
+                    <li><strong>Modes</strong></li>
+                    <li><a href="#mode-simple">Simple</a></li>
+                    <li><a href="#mode-full">Full</a></li>
+                    <li><a href="#mode-full-web">Full Web</a></li>
+                    <li><br></li>
+                    <li><strong>Runtime</strong></li>
+                    <li><a href="#runtime-overview">Overview</a></li>
+                    <li><a href="#runtime-paths">Paths</a></li>
+                    <li><a href="#runtime-envs">Environments</a></li>
+                    <li><br></li>
+                    <li><strong>Communication</strong></li>
+                    <li><a href="#comm-overview">Overview</a></li>
+                    <li><a href="#comm-sockets">Sockets</a></li>
+                    <li><a href="#comm-messagepack">MessagePack</a></li>
+                    <li><br></li>
+                    <li><strong>Errors</strong></li>
+                    <li><a href="#errors-remote">RemoteFunctionError</a></li>
+                    <li><a href="#errors-codes">Error Codes</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main>
+            <h1>Exevara Reference</h1>
+            <p>Complete technical reference for Exevara, the Gogo SDK, and the shared runtime platform.</p>
+
+            <hr>
+
+            <!-- GOGO CLI -->
+            <article>
+                <h2>Gogo CLI</h2>
+
+                <h3 id="cli-init">gogo init</h3>
+                <p>Initializes a new Exevara project in the current directory. Creates the project structure and sets the mode.</p>
+                <pre><code>gogo init &lt;mode&gt;</code></pre>
+                <p><strong>Arguments:</strong></p>
+                <ul>
+                    <li><code>mode</code> — One of <code>simple</code>, <code>full</code>, <code>full_web</code>. Required.</li>
+                </ul>
+                <p><em>Placeholder: additional flags and options will be documented here.</em></p>
+
+                <h3 id="cli-build">gogo build</h3>
+                <p>Builds the project in the current directory and outputs a binary to <code>./dist</code>.</p>
+                <pre><code>gogo build</code></pre>
+                <p><em>Placeholder: build flags, output options, and environment behavior will be documented here.</em></p>
+
+                <h3 id="cli-run">gogo run</h3>
+                <p>Runs the project locally without building a binary. Useful during development.</p>
+                <pre><code>gogo run</code></pre>
+                <p><em>Placeholder: additional behavior and flags will be documented here.</em></p>
+            </article>
+
+            <!-- GOGO.TOML -->
+            <article>
+                <h2>gogo.toml</h2>
+
+                <h3 id="toml-overview">Overview</h3>
+                <p><code>gogo.toml</code> is the project configuration file created by <code>gogo init</code>. It lives at the root of your project and controls how Gogo builds and runs your app.</p>
+
+                <h3 id="toml-fields">Fields</h3>
+                <p><em>Placeholder: full field reference including types, defaults, and descriptions will be documented here once the schema is finalized.</em></p>
+            </article>
+
+            <!-- MODES -->
+            <article>
+                <h2>Modes</h2>
+
+                <h3 id="mode-simple">Simple</h3>
+                <p>Simple mode does not require the Exevara runtime daemon. Suitable for CLI tools, Tkinter apps, and basic scripts where shared runtime features are not needed.</p>
+                <p>Initialize with:</p>
+                <pre><code>gogo init simple</code></pre>
+                <p><em>Placeholder: full behavior, limitations, and use case guidance will be documented here.</em></p>
+
+                <h3 id="mode-full">Full</h3>
+                <p>Full mode uses the Exevara runtime daemon. Suitable for larger desktop applications that need shared dependencies, caching, and execution offloading.</p>
+                <p>Initialize with:</p>
+                <pre><code>gogo init full</code></pre>
+                <p><em>Placeholder: runtime requirements, startup behavior, and use case guidance will be documented here.</em></p>
+
+                <h3 id="mode-full-web">Full Web</h3>
+                <p>Full Web mode uses the Exevara runtime daemon and scaffolds a Flask application. Suitable for Flask and FastAPI style web apps.</p>
+                <p>Initialize with:</p>
+                <pre><code>gogo init full_web</code></pre>
+                <p><em>Placeholder: scaffolded structure, runtime requirements, and web server behavior will be documented here.</em></p>
+            </article>
+
+            <!-- RUNTIME -->
+            <article>
+                <h2>Runtime</h2>
+
+                <h3 id="runtime-overview">Overview</h3>
+                <p>The Exevara runtime is a shared daemon that handles package installation, dependency isolation, caching, and execution on behalf of apps built with Gogo. Apps become lightweight clients — the runtime provides the heavy infrastructure once, shared across all Exevara apps on the machine.</p>
+
+                <h3 id="runtime-paths">Paths</h3>
+                <p>The runtime stores data under the user's home directory:</p>
+                <ul>
+                    <li><code>~/.exevara/</code> — root runtime directory</li>
+                    <li><code>~/.exevara/envs/root/</code> — shared dependency environment</li>
+                    <li><code>~/.exevara/envs/&lt;uuid&gt;/</code> — isolated environment for conflicting dependencies</li>
+                </ul>
+                <p><em>Placeholder: full path reference and cache locations will be documented here.</em></p>
+
+                <h3 id="runtime-envs">Environments</h3>
+                <p>The runtime manages two types of environments:</p>
+                <ul>
+                    <li><strong>Root environment</strong> — shared across all apps. Used when dependencies are compatible.</li>
+                    <li><strong>Isolated environment</strong> — created per app when dependency conflicts are detected. Identified by UUID.</li>
+                </ul>
+                <p>Package installation is handled via <code>uv</code>.</p>
+                <p><em>Placeholder: conflict detection behavior and isolation rules will be documented here.</em></p>
+            </article>
+
+            <!-- COMMUNICATION -->
+            <article>
+                <h2>Communication</h2>
+
+                <h3 id="comm-overview">Overview</h3>
+                <p>Gogo communicates with the Exevara runtime over a local socket connection. When your app calls a function via Gogo, the request is serialized and sent to the runtime, executed there, and the result is returned to your app.</p>
+
+                <h3 id="comm-sockets">Sockets</h3>
+                <p><em>Placeholder: socket type, address, connection lifecycle, and timeout behavior will be documented here.</em></p>
+
+                <h3 id="comm-messagepack">MessagePack</h3>
+                <p>Messages between Gogo and the runtime are serialized using MessagePack for compact, fast binary encoding.</p>
+                <p><em>Placeholder: message format, schema, and versioning will be documented here.</em></p>
+            </article>
+
+            <!-- ERRORS -->
+            <article>
+                <h2>Errors</h2>
+
+                <h3 id="errors-remote">RemoteFunctionError</h3>
+                <p>Raised when a function executed on the Exevara runtime throws an exception. The error includes a traceback from the runtime side to help identify the source of the failure.</p>
+                <p>This error originates in the developer's code — it indicates a bug in the app, not a problem with the user's machine or the runtime itself.</p>
+                <p><em>Placeholder: full exception signature, traceback format, and handling guidance will be documented here.</em></p>
+
+                <h3 id="errors-codes">Error Codes</h3>
+                <p><em>Placeholder: full error code reference will be documented here.</em></p>
+            </article>
+        </main>
+    </body>
+</html>
